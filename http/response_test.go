@@ -5,7 +5,7 @@ import (
 	"reflect"
 
 	"github.com/bouk/monkey"
-	"github.com/crowleyfelix/base-client-go/errors"
+	"github.com/stone-payments/goclienttools/errors"
 	"github.com/levigross/grequests"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"

@@ -3,8 +3,8 @@ package http
 import (
 	"reflect"
 
-	"github.com/crowleyfelix/base-client-go/errors"
 	"github.com/levigross/grequests"
+	"github.com/stone-payments/goclienttools/errors"
 )
 
 //Requestable is the interface that handles with http requests

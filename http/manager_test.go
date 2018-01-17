@@ -1,9 +1,9 @@
 package http
 
 import (
-	"github.com/crowleyfelix/base-client-go/errors"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
+	"github.com/stone-payments/goclienttools/errors"
 )
 
 type mockInterceptor struct {

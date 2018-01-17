@@ -1,6 +1,6 @@
 package http
 
-import "github.com/crowleyfelix/base-client-go/errors"
+import "github.com/stone-payments/goclienttools/errors"
 
 //Interceptor exposes interceptor methods
 type Interceptor interface {

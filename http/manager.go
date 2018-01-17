@@ -3,7 +3,7 @@ package http
 import (
 	"fmt"
 
-	"github.com/crowleyfelix/base-client-go/errors"
+	"github.com/stone-payments/goclienttools/errors"
 )
 
 //Manager exposes request manager methods

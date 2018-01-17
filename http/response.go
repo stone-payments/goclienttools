@@ -3,8 +3,8 @@ package http
 import (
 	"net/http"
 
-	"github.com/crowleyfelix/base-client-go/errors"
 	"github.com/levigross/grequests"
+	"github.com/stone-payments/goclienttools/errors"
 )
 
 //Response exposes http response methods
