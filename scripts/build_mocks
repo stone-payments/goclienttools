@@ -18,7 +18,7 @@ function build () {
 # Register mock builds here
 # build SOURCE_PACKAGE INTERFACE
 build http Requestable
-build http Request
+build http Options
 build http Response
 build http Interceptor
 build http Manager
