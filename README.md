@@ -1,6 +1,6 @@
 # GoClientTools
 
-Este repositório contém um pacotes utilitarios para se construir um Client ou SDK.
+Este repositório contém um pacotes utilitarios para se construir um Client em Go.
 
 
 ## Utilizando no seu projeto
@@ -29,7 +29,7 @@ type Client struct {
 
 func (c *Client) Get(id int) (Something, errors.Error){
     url := r.manager.BuildURL(endpoint, id)
-    resp, err := c.manager.Request(http.Requester.Get, url, http.NewRequestOptions())
+    resp, err := c.manager.Request(http.Requester.Get, url, http.Options())
 
     var something Something
 	if err == nil {
