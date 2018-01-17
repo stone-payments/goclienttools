@@ -22,4 +22,3 @@ build http Request
 build http Response
 build http Interceptor
 build http Manager
-build v1 Client
