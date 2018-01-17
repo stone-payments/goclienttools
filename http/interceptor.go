@@ -4,17 +4,17 @@ import "github.com/stone-payments/goclienttools/errors"
 
 //Interceptor exposes interceptor methods
 type Interceptor interface {
-	OnRequest(Request) Request
+	OnRequest(RequestOptions) RequestOptions
 	OnResponse(Response) (Response, errors.Error)
 }
 
 type interceptor struct {
-	onRequestCallback  func(Request) Request
+	onRequestCallback  func(RequestOptions) RequestOptions
 	onResponseCallback func(Response) (Response, errors.Error)
 }
 
 //OnRequestCallback define request callback interceptor assignature
-type OnRequestCallback func(Request) Request
+type OnRequestCallback func(RequestOptions) RequestOptions
 
 //OnResponseCallback define response callback interceptor assignature
 type OnResponseCallback func(Response) (Response, errors.Error)
@@ -27,7 +27,7 @@ func NewInterceptor(onRequestCallback OnRequestCallback, onResponseCallback OnRe
 	}
 }
 
-func (p *interceptor) OnRequest(request Request) Request {
+func (p *interceptor) OnRequest(request RequestOptions) RequestOptions {
 	if p.onRequestCallback != nil {
 		return p.onRequestCallback(request)
 	}

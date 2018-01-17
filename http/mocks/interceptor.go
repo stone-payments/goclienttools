@@ -11,15 +11,15 @@ type Interceptor struct {
 }
 
 // OnRequest provides a mock function with given fields: _a0
-func (_m *Interceptor) OnRequest(_a0 http.Request) http.Request {
+func (_m *Interceptor) OnRequest(_a0 http.RequestOptions) http.RequestOptions {
 	ret := _m.Called(_a0)
 
-	var r0 http.Request
-	if rf, ok := ret.Get(0).(func(http.Request) http.Request); ok {
+	var r0 http.RequestOptions
+	if rf, ok := ret.Get(0).(func(http.RequestOptions) http.RequestOptions); ok {
 		r0 = rf(_a0)
 	} else {
 		if ret.Get(0) != nil {
-			r0 = ret.Get(0).(http.Request)
+			r0 = ret.Get(0).(http.RequestOptions)
 		}
 	}
 

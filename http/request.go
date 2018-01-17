@@ -4,8 +4,8 @@ import (
 	"github.com/levigross/grequests"
 )
 
-//Request exposes request request methods
-type Request interface {
+//RequestOptions exposes request request methods
+type RequestOptions interface {
 	SetHeaders(map[string]string)
 	Headers() map[string]string
 	SetParams(map[string]string)
@@ -14,36 +14,36 @@ type Request interface {
 	JSON() interface{}
 }
 
-//NewRequest constructs implementation of Request
-func NewRequest() Request {
-	return new(request)
+//NewRequestOptions constructs implementation of RequestOptions
+func NewRequestOptions() RequestOptions {
+	return new(requestOptions)
 }
 
-//request is the struct wrapper of grequests struct
-type request struct {
+//requestOptions is the struct wrapper of grequests struct
+type requestOptions struct {
 	grequests.RequestOptions
 }
 
-func (r *request) SetHeaders(headers map[string]string) {
+func (r *requestOptions) SetHeaders(headers map[string]string) {
 	r.RequestOptions.Headers = headers
 }
 
-func (r *request) Headers() map[string]string {
+func (r *requestOptions) Headers() map[string]string {
 	return r.RequestOptions.Headers
 }
 
-func (r *request) SetParams(params map[string]string) {
+func (r *requestOptions) SetParams(params map[string]string) {
 	r.RequestOptions.Params = params
 }
 
-func (r *request) Params() map[string]string {
+func (r *requestOptions) Params() map[string]string {
 	return r.RequestOptions.Params
 }
 
-func (r *request) SetJSON(data interface{}) {
+func (r *requestOptions) SetJSON(data interface{}) {
 	r.RequestOptions.JSON = data
 }
 
-func (r *request) JSON() interface{} {
+func (r *requestOptions) JSON() interface{} {
 	return r.RequestOptions.JSON
 }
