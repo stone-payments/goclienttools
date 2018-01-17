@@ -65,7 +65,7 @@ var _ = Describe("Response", func() {
 			})
 		})
 		It("should call grequest response JSON method", func() {
-			err = errors.NewSerializing()
+			err = errors.NewSerialization()
 			Expect(resp.JSON(make(map[string]string))).To(Equal(err))
 		})
 	})

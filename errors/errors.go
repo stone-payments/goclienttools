@@ -17,14 +17,14 @@ func NewCallout(messages ...string) *Callout {
 	}
 }
 
-//Serializing represents a serialization error
-type Serializing struct {
+//Serialization represents a serialization error
+type Serialization struct {
 	*errorWrapper
 }
 
-//NewSerializing constructs a Serializing error
-func NewSerializing(messages ...string) *Serializing {
-	return &Serializing{
+//NewSerialization constructs a Serialization error
+func NewSerialization(messages ...string) *Serialization {
+	return &Serialization{
 		new("Failed on serializing data.", messages...),
 	}
 }
