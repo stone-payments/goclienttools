@@ -5,10 +5,10 @@ import (
 	"reflect"
 
 	"github.com/bouk/monkey"
-	"github.com/stone-payments/goclienttools/errors"
 	"github.com/levigross/grequests"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
+	"github.com/stone-payments/goclienttools/errors"
 )
 
 var _ = Describe("Response", func() {
