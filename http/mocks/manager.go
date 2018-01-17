@@ -28,7 +28,7 @@ func (_m *Manager) BuildURL(endpoint string, params ...interface{}) string {
 }
 
 // Request provides a mock function with given fields: method, url, options, interceptors
-func (_m *Manager) Request(method http.RequestMethod, url string, options http.RequestOptions, interceptors ...http.Interceptor) (http.Response, errors.Error) {
+func (_m *Manager) Request(method http.RequestMethod, url string, options http.Options, interceptors ...http.Interceptor) (http.Response, errors.Error) {
 	_va := make([]interface{}, len(interceptors))
 	for _i := range interceptors {
 		_va[_i] = interceptors[_i]
@@ -39,7 +39,7 @@ func (_m *Manager) Request(method http.RequestMethod, url string, options http.R
 	ret := _m.Called(_ca...)
 
 	var r0 http.Response
-	if rf, ok := ret.Get(0).(func(http.RequestMethod, string, http.RequestOptions, ...http.Interceptor) http.Response); ok {
+	if rf, ok := ret.Get(0).(func(http.RequestMethod, string, http.Options, ...http.Interceptor) http.Response); ok {
 		r0 = rf(method, url, options, interceptors...)
 	} else {
 		if ret.Get(0) != nil {
@@ -48,7 +48,7 @@ func (_m *Manager) Request(method http.RequestMethod, url string, options http.R
 	}
 
 	var r1 errors.Error
-	if rf, ok := ret.Get(1).(func(http.RequestMethod, string, http.RequestOptions, ...http.Interceptor) errors.Error); ok {
+	if rf, ok := ret.Get(1).(func(http.RequestMethod, string, http.Options, ...http.Interceptor) errors.Error); ok {
 		r1 = rf(method, url, options, interceptors...)
 	} else {
 		if ret.Get(1) != nil {

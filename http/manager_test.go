@@ -12,7 +12,7 @@ type mockInterceptor struct {
 	onResponseCalled bool
 }
 
-func (m *mockInterceptor) OnRequest(req RequestOptions) RequestOptions {
+func (m *mockInterceptor) OnRequest(req Options) Options {
 	m.onRequestCalled = true
 	return req
 }
@@ -48,13 +48,13 @@ var _ = Describe("Manager", func() {
 	Describe("Request", func() {
 
 		var (
-			req *requestOptions
+			req *options
 		)
 
 		var (
 			resp   *response
 			err    error
-			method = func(_ string, _ RequestOptions) (Response, error) {
+			method = func(_ string, _ Options) (Response, error) {
 				resp = new(response)
 				return resp, err
 			}
@@ -72,7 +72,7 @@ var _ = Describe("Manager", func() {
 		)
 
 		BeforeEach(func() {
-			req = new(requestOptions)
+			req = new(options)
 			err = nil
 
 			externalInterceptor = new(mockInterceptor)

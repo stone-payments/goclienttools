@@ -9,7 +9,7 @@ import (
 //Manager exposes request manager methods
 type Manager interface {
 	BuildURL(endpoint string, params ...interface{}) string
-	Request(method RequestMethod, url string, options RequestOptions, interceptors ...Interceptor) (Response, errors.Error)
+	Request(method RequestMethod, url string, options Options, interceptors ...Interceptor) (Response, errors.Error)
 }
 
 //NewManager constructs a request manager
@@ -26,7 +26,7 @@ func (s *manager) BuildURL(endpoint string, params ...interface{}) string {
 	return s.baseURL + fmt.Sprintf(endpoint, params...)
 }
 
-func (s *manager) Request(method RequestMethod, url string, request RequestOptions, interceptors ...Interceptor) (Response, errors.Error) {
+func (s *manager) Request(method RequestMethod, url string, request Options, interceptors ...Interceptor) (Response, errors.Error) {
 	interceptors = s.allInterceptors(interceptors...)
 
 	for _, interceptor := range interceptors {

@@ -9,16 +9,16 @@ import (
 
 //Requestable is the interface that handles with http requests
 type Requestable interface {
-	Get(url string, request RequestOptions) (Response, error)
-	Post(url string, request RequestOptions) (Response, error)
-	Put(url string, request RequestOptions) (Response, error)
-	Delete(url string, request RequestOptions) (Response, error)
+	Get(url string, request Options) (Response, error)
+	Post(url string, request Options) (Response, error)
+	Put(url string, request Options) (Response, error)
+	Delete(url string, request Options) (Response, error)
 }
 
 type requester struct{}
 
 //Get is the method wrapper of grequests
-func (r requester) Get(url string, request RequestOptions) (Response, error) {
+func (r requester) Get(url string, request Options) (Response, error) {
 	opt, err := r.requestOptions(request)
 
 	if err != nil {
@@ -30,7 +30,7 @@ func (r requester) Get(url string, request RequestOptions) (Response, error) {
 }
 
 //Post is the method wrapper of grequests
-func (r requester) Post(url string, request RequestOptions) (Response, error) {
+func (r requester) Post(url string, request Options) (Response, error) {
 	opt, err := r.requestOptions(request)
 
 	if err != nil {
@@ -42,7 +42,7 @@ func (r requester) Post(url string, request RequestOptions) (Response, error) {
 }
 
 //Put is the method wrapper of grequests
-func (r requester) Put(url string, request RequestOptions) (Response, error) {
+func (r requester) Put(url string, request Options) (Response, error) {
 	opt, err := r.requestOptions(request)
 
 	if err != nil {
@@ -54,7 +54,7 @@ func (r requester) Put(url string, request RequestOptions) (Response, error) {
 }
 
 //Delete is the method wrapper of grequests
-func (r requester) Delete(url string, request RequestOptions) (Response, error) {
+func (r requester) Delete(url string, request Options) (Response, error) {
 	opt, err := r.requestOptions(request)
 
 	if err != nil {
@@ -65,10 +65,10 @@ func (r requester) Delete(url string, request RequestOptions) (Response, error) 
 	return &response{resp}, err
 }
 
-func (r requester) requestOptions(req RequestOptions) (*grequests.RequestOptions, error) {
-	if r, ok := req.(*requestOptions); ok {
+func (r requester) requestOptions(req Options) (*grequests.RequestOptions, error) {
+	if r, ok := req.(*options); ok {
 		return &r.RequestOptions, nil
 	}
 
-	return nil, errors.NewInvalidType(reflect.TypeOf(req), reflect.TypeOf(new(requestOptions)))
+	return nil, errors.NewInvalidType(reflect.TypeOf(req), reflect.TypeOf(new(options)))
 }
