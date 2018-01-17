@@ -1,6 +1,6 @@
 # GoClientTools
 
-Este repositório contém um pacotes utilitarios para se construir um Client em Go.
+Este repositório contém pacotes utilitarios para se construir um Client em Go.
 
 
 ## Utilizando no seu projeto
