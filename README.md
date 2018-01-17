@@ -20,7 +20,7 @@ A interface principal da biblioteca é o Manager, ele é responsável por gerenc
 ```go
 import (
     "github.com/stone-payments/goclienttools/http"
-    "github.com/stone-payments/goclienttools/errors"    
+    "github.com/stone-payments/goclienttools/errors"
 )
 
 type Client struct {
@@ -28,15 +28,15 @@ type Client struct {
 }
 
 func (c *Client) Get(id int) (Something, errors.Error){
-    url := r.manager.BuildURL(endpoint, id)
+    url := c.manager.BuildURL(endpoint, id)
     resp, err := c.manager.Request(http.Requester.Get, url, http.Options())
 
     var something Something
-	if err == nil {
-		err = resp.JSON(&something)
-	}
+    if err == nil {
+        err = resp.JSON(&something)
+    }
 
-	return &something, err
+    return &something, err
 }
 
 client := Client{baseUrl}
