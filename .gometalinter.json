@@ -1,0 +1,21 @@
+{
+    "Enable": [
+        "golint",
+        "vet",
+        "megacheck",
+        "goconst",
+        "gocyclo",
+        "unparam",
+        "gotype",
+        "varcheck",
+        "deadcode",
+        "structcheck",
+        "maligned",
+        "interfacer",
+        "misspell"
+    ],
+    "Skip": [
+        "mocks",
+        "testing"
+    ]
+}

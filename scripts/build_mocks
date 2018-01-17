@@ -1,0 +1,25 @@
+#!/bin/bash
+
+DEFAULT_PACKAGE="mocks"
+
+echo "--> building mocks <--"
+
+function build () {
+    dest="$1/$DEFAULT_PACKAGE"
+
+    if [ ! -d "$dest" ]; then
+        mkdir $dest
+    fi
+
+    echo "building mocks for $2 to $dest"
+    mockery -dir=$1 -name=$2 --output=$dest -case=underscore
+}
+
+# Register mock builds here
+# build SOURCE_PACKAGE INTERFACE
+build http Requestable
+build http Request
+build http Response
+build http Interceptor
+build http Manager
+build v1 Client
