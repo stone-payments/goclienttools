@@ -3,8 +3,4 @@ go:
   - 1.9.x
   - master
 
-before_install:
-  - cp .netrc ~
-  - chmod 600 .netrc
-  
 script: make test
