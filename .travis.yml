@@ -1,0 +1,14 @@
+language: go
+go:
+  - 1.9.x
+  - master
+before_install:
+  - go get github.com/modocache/gover
+  - go get  github.com/stone-payments/goclienttools/...
+script:
+  - go vet github.com/stone-payments/goclienttools...
+  - make test
+  - go list -f '{{if len .TestGoFiles}}"go test -coverprofile={{.Dir}}/.coverprofile {{.ImportPath}}"{{end}}' ./... | xargs -i sh -c {}
+  - gover . coverprofile.txt
+after_success:
+  - bash <(curl -s https://codecov.io/bash) -f coverprofile.txt

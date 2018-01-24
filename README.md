@@ -1,5 +1,10 @@
 # GoClientTools
 
+[![Build Status](https://travis-ci.org/stone-payments/goclienttools.svg?branch=master)](https://travis-ci.org/stone-payments/goclienttools)
+
+[![codecov](https://codecov.io/gh/stone-payments/goclienttools/branch/master/graph/badge.svg)](https://codecov.io/gh/stone-payments/goclienttools)
+
+
 Este repositório contém pacotes utilitarios para se construir um Client em Go.
 
 
